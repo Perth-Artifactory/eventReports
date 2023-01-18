@@ -3,6 +3,7 @@
 import requests
 import json
 from pprint import pprint
+from datetime import datetime
 
 with open("config.json","r") as f:
     config = json.load(f)
@@ -62,6 +63,6 @@ for report in reports:
     with open("template.html","r") as t:
         template = t.read()
         with open(f"generated/{report}.html","w") as f:
-            f.write(template.format(lines))
+            f.write(template.format(lines,datetime.now()))
 
     #print(lines)
